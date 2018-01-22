@@ -1,13 +1,11 @@
 'use strict'
+const assert = require('assert');
+const Block = require('../../../lib/entities/Block.js')
 
-class Block {
-  constructor(index, previousHash, timestamp, data, hash, nonce) {
-    this.index = index;
-    this.previousHash = previousHash;
-    this.timestamp = timestamp;
-    this.hash = hash;
-    this.nonce = nonce;
-  }
-}
-
-module.exports = Block;
+describe('Block', () => {
+  describe('constructor', () => {
+    it('set properties', ()=>{
+      const block = new Block()
+    })
+  })
+})
