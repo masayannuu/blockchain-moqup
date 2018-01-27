@@ -13,7 +13,7 @@ describe(Transaction.name, () => {
       const transaction = new Transaction([input], [output], transaction_hash)
       assert.deepEqual(transaction.inputs, [input])
       assert.deepEqual(transaction.outputs, [output])
-      assert.deepEqual(transaction.transaction_hash, transaction_hash)
+      assert.deepEqual(transaction.transactionHash, transaction_hash)
     })
   })
 })
