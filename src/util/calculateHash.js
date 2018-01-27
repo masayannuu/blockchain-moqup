@@ -1,12 +1,6 @@
 'use strict'
 const SHA256 = require('crypto-js/SHA256')
 
-const toHashString = (object) => {
-  return JSON.stringify(object, Object.keys(object).sort())
+module.exports = (index, transactions, previous_hash, timestamp) => {
+  return SHA256(index + transactions + previous_hash + timestamp).toString()
 }
-
-const calculateHash = (input, output) => {
-  return SHA256(toHashString(input) + toHashString(output)).toString()
-}
-
-module.exports = calculateHash
