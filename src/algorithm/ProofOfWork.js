@@ -20,7 +20,7 @@ class ProofOfWork {
     const target = this.getDifficulty(difficulty_bit)
     let result = []
     for (const nonce of [...Array(this.maxCount).keys()]) {
-      const hash_result = SHA256(toHashString(this.transactions) + toHashString(this.timestamp) + nonce.toString()).toString()
+      const hash_result = SHA256(toHashString(this.transactions) + toHashString(this.timestamp) + this.previousHash + nonce.toString()).toString()
       if (parseInt(hash_result, 16) < target) {
         console.log(`Success with nonce: ${nonce}`)
         result.push(hash_result, nonce)
