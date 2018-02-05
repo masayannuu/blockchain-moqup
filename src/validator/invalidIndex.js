@@ -1,5 +1,5 @@
 'use srtict'
 
 module.exports = (newBlock, previousBlock) => {
-  (previousBlock.index + 1 === newBlock.index) ? '' : 'block index is invalid'
+  return (newBlock.index + 1 === previousBlock.index) ? '' : 'block index is invalid'
 }

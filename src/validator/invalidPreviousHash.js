@@ -1,5 +1,5 @@
 'use srtict'
 
 module.exports = (newBlock, previousBlock) => {
-  (previousBlock.hash === newBlock.hash) ? '' : 'previous hash is invalid'
+  return (newBlock.hash === previousBlock.hash) ? '' : 'previous hash is invalid'
 }
