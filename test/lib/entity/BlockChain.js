@@ -25,4 +25,11 @@ describe(BlockChain.name, () => {
       assert.deepEqual(block_chain.latestBlock, block)
     })
   })
+
+  describe('createNextBlock', () => {
+    it('return Block object', () => {
+      const new_block = block_chain.createNextBlock(transactions)
+      assert.deepEqual(new_block.previousHash, hash)
+    })
+  })
 })
