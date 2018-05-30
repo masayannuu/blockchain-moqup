@@ -11,10 +11,10 @@ const BlockChain = require('../../../lib/entity/BlockChain.js')
 describe('invalidPreviousHash', () => {
   context('when valid', () => {
     it('return empty string', () => {
-      const hash = calculateHash(1, 'data', SHA256('sample').toString(), 1517062919.271)
-      const block = new Block(2, 'data2', SHA256('sample2').toString(), 1517062919.271, hash, 0)
       const genesis_block = getGenesisBlock()
       const block_chain = new BlockChain([genesis_block])
+      const hash = calculateHash(1, 'data', SHA256('sample').toString(), 1517062919.271)
+      const block = new Block(2, 'data2', SHA256('sample2').toString(), 1517062919.271, hash, 0)
       const message = invalidPreviousHash(block_chain.latestBlock, block_chain.latestBlock)
       assert.deepEqual(message, '')
     })

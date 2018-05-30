@@ -1,27 +1,19 @@
 'use strict'
 const invalidBlockHash = require('./invalidBlockHash')
-const invalidIndex = require('invalidIndex')
-const invalidPreviousHash = require('invalidPreviousHash')
+const invalidIndex = require('./invalidIndex')
+const invalidPreviousHash = require('./invalidPreviousHash')
 
-class BlockValiadtor {
-  construct () {
+class BlockValidator {
+  constructor () {
     this.valid = false
     this.messages = []
   }
 
-  async validate (new_block, previous_block) {
+  validate (new_block, previous_block) {
     this.messages.push(invalidIndex(new_block, previous_block))
     this.messages.push(invalidPreviousHash(new_block, previous_block))
-    this.messages.push(onvalidBlockHash(new_block))
-    this.valid = (this.messages.fillter(Boolean).length == 0)
-  }
-
-  get valid () {
-    return this.valid
-  }
-
-  get errors () {
-    return this.messages
+    this.messages.push(invalidBlockHash(new_block))
+    this.valid = (this.messages.filter(Boolean).length == 0)
   }
 }
-module.exports = Validator
+module.exports = BlockValidator
